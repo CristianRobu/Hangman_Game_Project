@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -9,18 +10,37 @@ public class Main {
         // 4. citeste de la user litera si salveaza intr-o variabila
         // 5. parcurgem cuvantul (adica folosim un for) si comparam fiecare litera din cuvant cu litera salvata
         // 6. daca exista litera, inlocuim * de la pozitia literei din cuvant in sirul de stelute
-
+        Scanner sc = new Scanner(System.in);
         System.out.println("Welcome to Hangman!");
+
+
         System.out.print("Cuvantul este ");
         String hiddenWord = "avion";
         char[] stars = new char[hiddenWord.length()];
 //        for (int i = 0; i < stars.length ; i++) {
 //            stars[i]='*';
 //        }
-        Arrays.fill(stars,'*');
+        Arrays.fill(stars, '*');
 
         System.out.println(String.valueOf(stars));
+        while (true) {
+            System.out.println("Introdu o litera: ");
+            char letter = sc.next().charAt(0);
+            for (int i = 0; i < hiddenWord.length(); i++) {
+                if (hiddenWord.charAt(i) == letter) {
+                    stars[i] = letter;
+                }
 
+
+            }
+            System.out.println(String.valueOf(stars));
+
+            if (hiddenWord.equals(String.valueOf(stars))) {
+                System.out.println("Felicitari!");
+                break;
+            }
+
+        }
 
 
     }
