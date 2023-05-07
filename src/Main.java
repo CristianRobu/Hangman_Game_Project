@@ -80,7 +80,7 @@ public class Main {
         ArrayList<String> word = new ArrayList<>(Arrays.asList("perfume", "transport", "manager", "woman", "proportion", "prestige", "vegetable", "environment", "obligation", "example", "liability"));
         int index = rnd.nextInt(word.size());
         System.out.println("Welcome to Hangman!");
-        System.out.print("Cuvantul este ");
+        System.out.print("Chosen word is  ");
         String hiddenWord = word.get(index);
         char[] stars = new char[hiddenWord.length()];
 //        for (int i = 0; i < stars.length ; i++) {
@@ -92,7 +92,7 @@ public class Main {
 
         while (true) {
             boolean itsLetterFound = false;
-            System.out.println("Introdu o litera: ");
+            System.out.println("Please choose a letter: ");
             char letter = sc.next().charAt(0);
 
             if (!usedLetters.contains(letter)) {
@@ -116,16 +116,15 @@ public class Main {
                 }
                 pictures.remove(0);
             }
-            if (attempts == 0 || pictures.isEmpty())
+            if (pictures.isEmpty()) {
 
-                if (attempts == 0) {
-                    System.out.println("Game Over ! Try again! ");
-                    break;
-                }
+                System.out.println("Game Over ! Try again! ");
+                break;
+            }
             System.out.println(String.valueOf(stars));
 
             if (hiddenWord.equals(String.valueOf(stars))) {
-                System.out.println("Felicitari!");
+                System.out.println("Congratuations, you have found the correct word !");
                 break;
             }
         }
