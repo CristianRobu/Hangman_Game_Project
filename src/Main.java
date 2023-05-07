@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -11,11 +13,12 @@ public class Main {
         // 5. parcurgem cuvantul (adica folosim un for) si comparam fiecare litera din cuvant cu litera salvata
         // 6. daca exista litera, inlocuim * de la pozitia literei din cuvant in sirul de stelute
         Scanner sc = new Scanner(System.in);
+        Random rnd = new Random();
+        ArrayList<String> word = new ArrayList<>(Arrays.asList("perfume", "transport", "manager", "woman", "proportion", "prestige", "vegetable", "environment", "obligation", "example", "liability"));
+        int index = rnd.nextInt(word.size());
         System.out.println("Welcome to Hangman!");
-
-
         System.out.print("Cuvantul este ");
-        String hiddenWord = "avion";
+        String hiddenWord = word.get(index);
         char[] stars = new char[hiddenWord.length()];
 //        for (int i = 0; i < stars.length ; i++) {
 //            stars[i]='*';
